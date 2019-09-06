@@ -3,7 +3,7 @@ import client, { q } from './faunadb'
 exports.handler = (event, context, callback) => {
     const id = event.path.match(/([^\/]*)\/*$/)[0]
 
-    return client.query(q.Get(q.Ref(q.Collection("post"), id)))
+    return client.query(q.Get(q.Ref(q.Collection("posts"), id)))
         .then(ret => {
                 return callback(null, {
                 statusCode: 200,
